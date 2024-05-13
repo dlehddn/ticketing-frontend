@@ -4,12 +4,12 @@
       <div class="col-md-4 mb-4" v-for="reservation in reservations" :key="reservation.id">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">{{ reservation.seatReservation.performanceDetail.performance.name }}</h5>
-            <p class="card-text">아티스트: {{ reservation.seatReservation.performanceDetail.artist }}</p>
-            <p class="card-text">시작 시간: {{ reservation.seatReservation.performanceDetail.startTime }}</p>
-            <p class="card-text">끝나는 시간: {{ reservation.seatReservation.performanceDetail.endTime }}</p>
-            <p class="card-text">좌석명: {{ reservation.seatReservation.seat.name }}</p>
-            <p class="card-text">좌석등급: {{ reservation.seatReservation.seat.grade }}</p>
+            <h5 class="card-title">{{ reservation.category }}</h5>
+            <p class="card-text">아티스트: {{ reservation.artist }}</p>
+            <p class="card-text">시작 시간: {{ reservation.startTime }}</p>
+            <p class="card-text">끝나는 시간: {{ reservation.endTime }}</p>
+            <p class="card-text">좌석명: {{ reservation.seatName }}</p>
+            <p class="card-text">좌석등급: {{ reservation.seatGrade }}</p>
             <p class="card-text">결제금액: {{ reservation.totalPrice }}</p>
           </div>
         </div>

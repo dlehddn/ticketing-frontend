@@ -77,7 +77,7 @@ export default {
       selectedPrice: null, // 선택된 가격 정보 추가
       selectedCategory: null,
       button: 'next',
-      index: null,
+      index: 0,
       size: 5,
       perfId: null,
       title: null,

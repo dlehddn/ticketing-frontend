@@ -116,8 +116,8 @@ export default {
         axios.post(`http://localhost:8081/reservation/save`, {
           memberId : this.member.memberId,
           seatReservationId : this.selectedSeat.seatReservationId,
-          totalPrice : this.finalPrice,
-          memberCouponId : this.selectedCoupon.memberCouponId,
+          totalPrice : this.finalPrice === null ? this.updatePrice : this.finalPrice,
+          memberCouponId : this.selectedCoupon != null ? this.selectedCoupon.memberCouponId : null,
         })
           .then(() => {
             alert("예약 성공");

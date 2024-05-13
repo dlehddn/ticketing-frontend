@@ -1,6 +1,5 @@
 <template>
     <CarouselComponent></CarouselComponent>
-  배포 테스트
     <ListComponent></ListComponent>
 </template>
 
