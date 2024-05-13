@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     signInRequest() {
-      axios.post('http://localhost:8081/member/signin', this.signInDto)
+      axios.post('https://tbnz6s2jre.execute-api.ap-northeast-2.amazonaws.com/member/signin', this.signInDto)
           .then(response => {
             if (response.status === 200) {
               alert("로그인 완료");
