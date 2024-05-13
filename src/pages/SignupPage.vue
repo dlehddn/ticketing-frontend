@@ -48,7 +48,7 @@ export default {
   },
   methods: {
     signUpRequest() {
-      axios.post('http://localhost:8081/member/signup', this.signUpDto)
+      axios.post('https://tbnz6s2jre.execute-api.ap-northeast-2.amazonaws.com/member/signup', this.signUpDto)
           .then(response => {
             if (response.status === 200) {
               alert('회원가입 완료');
