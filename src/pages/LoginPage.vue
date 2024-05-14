@@ -2,32 +2,35 @@
   <div class="container">
     <div class="d-flex align-items-center py-4 first">
       <main class="form-signin w-100 m-auto">
-          <h1 class="h3 mb-3 fw-normal">로그인 창</h1>
+        <h1 class="h3 mb-3 fw-normal">로그인 창</h1>
 
-          <div class="form-floating">
-            <input v-model="signInDto.email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">이메일</label>
-          </div>
-          <div class="form-floating">
-            <input v-model="signInDto.password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-            <label for="floatingPassword">비밀번호</label>
-          </div>
+        <div class="form-floating">
+          <input v-model="signInDto.email" type="email" class="form-control" id="floatingInput"
+                 placeholder="name@example.com">
+          <label for="floatingInput">이메일</label>
+        </div>
+        <div class="form-floating">
+          <input v-model="signInDto.password" type="password" class="form-control" id="floatingPassword"
+                 placeholder="Password">
+          <label for="floatingPassword">비밀번호</label>
+        </div>
 
-          <div class="form-check text-start my-3">
-            <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
-              아이디 비번 기억
-            </label>
-          </div>
-          <button  class="btn btn-dark w-100 py-2" @click="signInRequest">로그인</button>
+        <div class="form-check text-start my-3">
+          <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+          <label class="form-check-label" for="flexCheckDefault">
+            아이디 비번 기억
+          </label>
+        </div>
+        <button class="btn btn-dark w-100 py-2" @click="signInRequest">로그인</button>
       </main>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
 import store from "@/common/store/store";
+import {apiInstance} from "@/common/api";
+const axiosInstance = apiInstance();
 
 export default {
   name: 'LoginPage',
@@ -42,7 +45,7 @@ export default {
   },
   methods: {
     signInRequest() {
-      axios.post('https://tbnz6s2jre.execute-api.ap-northeast-2.amazonaws.com/member/signin', this.signInDto)
+      axiosInstance.post('/member/signin', this.signInDto)
           .then(response => {
             if (response.status === 200) {
               alert("로그인 완료");

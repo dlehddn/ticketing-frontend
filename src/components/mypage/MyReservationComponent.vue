@@ -21,7 +21,8 @@
 <script>
 import {computed} from "vue";
 import store from "@/common/store/store";
-import axios from "axios";
+import {apiInstance} from "@/common/api";
+const axiosInstance = apiInstance();
 
 export default {
   name: 'MyReservationComponent',
@@ -42,7 +43,7 @@ export default {
   },
   methods: {
     getMyReservations() {
-      axios.get(`http://localhost:8081/reservation/${this.member.memberId}`)
+      axiosInstance.get(`/reservation/${this.member.memberId}`)
           .then(response => {
             this.reservations = response.data;
             console.log(this.reservations);

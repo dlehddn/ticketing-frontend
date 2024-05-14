@@ -33,7 +33,8 @@
 
 </template>
 <script>
-import axios from "axios";
+import {apiInstance} from "@/common/api";
+const axiosInstance = apiInstance();
 import store from "@/common/store/store";
 import {computed} from "vue";
 
@@ -55,7 +56,7 @@ export default {
   },
   methods: {
     getMyCoupons() {
-      axios.get('http://localhost:8081/coupon/all')
+      axiosInstance.get('/coupon/all')
           .then(response => {
             this.coupons = response.data;
             console.log(this.coupons);
@@ -65,7 +66,7 @@ export default {
           });
     },
     saveCoupon(couponId) {
-      axios.post('http://localhost:8081/member-coupon/save', {
+      axiosInstance.post('/member-coupon/save', {
         memberId: this.member.memberId,
         couponId: couponId
       })

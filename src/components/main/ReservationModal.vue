@@ -63,7 +63,9 @@
 </template>
 
 <script>
-import axios from "axios";
+import {apiInstance} from "@/common/api";
+const axiosInstance = apiInstance();
+
 import {computed} from "vue";
 import store from "@/common/store/store";
 
@@ -113,7 +115,7 @@ export default {
     },
     reserveSeat() {
       if (this.selectedSeat && this.selectedSeat.available) {
-        axios.post(`http://localhost:8081/reservation/save`, {
+        axiosInstance.post(`/reservation/save`, {
           memberId : this.member.memberId,
           seatReservationId : this.selectedSeat.seatReservationId,
           totalPrice : this.finalPrice === null ? this.updatePrice : this.finalPrice,
@@ -134,7 +136,7 @@ export default {
       this.finalPrice = this.updatePrice * c.coupon.percent;
     },
     getMyCoupons() {
-      axios.get(`http://localhost:8081/member-coupon/all/${this.member.memberId}`)
+      axiosInstance.get(`/member-coupon/all/${this.member.memberId}`)
           .then(response => {
             this.coupons = response.data;
             console.log(this.coupons);
