@@ -15,6 +15,10 @@ jobs:
       - name: npm install
         run: npm install
 
+      - name: create .env file
+        run: |
+          echo "VUE_APP_API_BASE_URL=${{secrets.BASE_URL}}" > .envg
+
       - name: npm build
         run: npm run build
 
@@ -22,6 +26,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY}}
           AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_KEY}}
-          VUE_APP_API_BASE_URL: ${{secrets.BASE_URL}}
         run:
           aws s3 cp --recursive --region ap-northeast-2 dist s3://bucket-ticketing
