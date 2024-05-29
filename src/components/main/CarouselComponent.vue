@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     getMyCoupons() {
-      axiosInstance.get('/coupon/all')
+      axiosInstance.get('/coupons')
           .then(response => {
             this.coupons = response.data;
             console.log(this.coupons);
@@ -66,7 +66,7 @@ export default {
           });
     },
     saveCoupon(couponId) {
-      axiosInstance.post('/member-coupon/save', {
+      axiosInstance.post('/member-coupons', {
         memberId: this.member.memberId,
         couponId: couponId
       })

@@ -33,6 +33,7 @@ export default {
     },
     logout() {
       store.commit('setMember', null);
+      store.commit('setToken', null);
     }
   },
   setup() {

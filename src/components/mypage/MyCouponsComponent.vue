@@ -39,7 +39,7 @@ export default {
   },
   methods: {
     getMyCoupons() {
-      axiosInstance.get(`/member-coupon/all/${this.member.memberId}`)
+      axiosInstance.get(`/member-coupons/${this.member.memberId}`)
           .then(response => {
             this.coupons = response.data;
             console.log(this.coupons);

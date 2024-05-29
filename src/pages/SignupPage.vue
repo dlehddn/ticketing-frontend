@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     signUpRequest() {
-      axiosInstance.post('/member/signup', this.signUpDto)
+      axiosInstance.post('/members/signup', this.signUpDto)
           .then(response => {
             if (response.status === 200) {
               alert('회원가입 완료');

@@ -115,7 +115,7 @@ export default {
     },
     reserveSeat() {
       if (this.selectedSeat && this.selectedSeat.available) {
-        axiosInstance.post(`/reservation/save`, {
+        axiosInstance.post(`/mem-reservations`, {
           memberId : this.member.memberId,
           seatReservationId : this.selectedSeat.seatReservationId,
           totalPrice : this.finalPrice === null ? this.updatePrice : this.finalPrice,
@@ -136,7 +136,7 @@ export default {
       this.finalPrice = this.updatePrice * c.coupon.percent;
     },
     getMyCoupons() {
-      axiosInstance.get(`/member-coupon/all/${this.member.memberId}`)
+      axiosInstance.get(`/member-coupons/${this.member.memberId}`)
           .then(response => {
             this.coupons = response.data;
             console.log(this.coupons);

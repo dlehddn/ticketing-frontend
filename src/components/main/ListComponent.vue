@@ -89,7 +89,7 @@ export default {
   },
   methods: {
     getPerfDetails() {
-      axiosInstance.post('/perform-detail/all', {
+      axiosInstance.post('/perform-details', {
         button: this.button,
         index: this.index,
         size: this.size,
@@ -106,7 +106,7 @@ export default {
     },
     getRemainSeats(price, id) { // 가격 정보를 전달하는 메서드로 수정
       this.selectedPrice = price; // 가격 정보 설정
-      axiosInstance.get(`/reservation/available/${id}`)
+      axiosInstance.get(`/seat-reservations/${id}`)
           .then(response => {
             this.seats = response.data;
             console.log(this.seats);
@@ -116,7 +116,7 @@ export default {
           });
     },
     getPerfCategories() {
-      axiosInstance.get('/perform/all')
+      axiosInstance.get('/performs')
           .then(response => {
             this.categories = response.data;
           })

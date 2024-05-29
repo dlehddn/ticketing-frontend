@@ -45,12 +45,15 @@ export default {
   },
   methods: {
     signInRequest() {
-      axiosInstance.post('/member/signin', this.signInDto)
+      axiosInstance.post('/members/signin', this.signInDto)
           .then(response => {
             if (response.status === 200) {
               alert("로그인 완료");
               console.log(response.data);
+              const token = response.headers.get('Authorization');
+              console.log(token)
               store.commit('setMember', response.data);
+              store.commit('setToken', token);
             }
           })
           .catch(error => {

@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     getMyReservations() {
-      axiosInstance.get(`/reservation/${this.member.memberId}`)
+      axiosInstance.get(`/mem-reservations/${this.member.memberId}`)
           .then(response => {
             this.reservations = response.data;
             console.log(this.reservations);
